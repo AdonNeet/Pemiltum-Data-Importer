@@ -20,7 +20,7 @@ def connect_mysql(host, user, password, database):
 def insert_participant(email):
     cursor = db.cursor()
     sql = "INSERT INTO emails (email, created_at, updated_at) VALUES (%s, NOW(), NOW())"
-    cursor.execute(sql, email)
+    cursor.execute(sql, (email, ))
     db.commit()
     cursor.close()
 
